@@ -9,6 +9,7 @@ class GameModel extends \W\Model\Model {
         $sqlRequest = '
             SELECT *
             FROM videogame
+            ORDER BY RAND()
             LIMIT 3
         ';
 
@@ -24,15 +25,15 @@ class GameModel extends \W\Model\Model {
     }
 
 
-    public function getAllGamesByConsole($consoleId=0) {
+    public function getAllGamesByConsole() {
         $sqlRequest = '
             SELECT *
             FROM videogame
-            WHERE vid_console = :consoleId
+
         ';
 
         $stmt = $this->dbh->prepare($sqlRequest);
-        $stmt->bindValue(':consoleId', $consoleId);
+        //$stmt->bindValue(':consoleId', $consoleId);
 
         if($stmt->execute() == false) {
 			debug($stmt->errorInfo());

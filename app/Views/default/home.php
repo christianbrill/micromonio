@@ -9,7 +9,7 @@
 	<div style="display:flex;flex-flow:row nowrap;justify-content:space-around; margin:50px 0;">
 		<?php foreach($allGames as $allInfo) : ?>
 			<div>
-				<a href="<?= $this->url('game_details')?>"><img src="<?= $allInfo['vid_image'] ?>" alt="<?= $allInfo['vid_name'] ?> Poster" width="250px" height="300px"></a>
+				<a href="<?= $this->url('game_details') ?>"><img src="<?= $allInfo['vid_image'] ?>" alt="<?= $allInfo['vid_name'] ?> Poster" width="250px" height="300px" style="border:5px solid black;"></a>
 
 				<h2 style="text-align:center"><a href="<?= $this->url('game_details') ?>"><?= $allInfo['vid_name'] ?></a></h2>
 

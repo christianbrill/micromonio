@@ -36,10 +36,10 @@ class GameController extends Controller {
 	// functions for console page
 	// =============================================================
 	public function console() {
-		
+
 		// get games per console
 		$consoleObject = new GameModel();
-		$gamesByConsole = $consoleObject->getAllGamesByConsole($consoleId);
+		$gamesByConsole = $consoleObject->getAllGamesByConsole();
 
 		$this->show('game/console', array(
 			'allGames' => $gamesByConsole
