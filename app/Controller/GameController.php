@@ -20,7 +20,7 @@ class GameController extends Controller {
 		9 => 'Nintendo DS'
 	);
 
-	// constants
+	// console constants
 	const CONSOLE_PS = 1;
 	const CONSOLE_PC = 2;
 	const CONSOLE_XBOX = 3;
@@ -31,18 +31,64 @@ class GameController extends Controller {
 	const CONSOLE_BOY = 8;
 	const CONSOLE_DS = 9;
 
+	public static function getConsoleNameFromValue($consoleVal) {
+		if( array_key_exists($consoleVal, self::$consoleValues)) {
+			return self::$consoleValues[$consoleVal];
+		}
+		return 'Not a valid console.';
+	}
+
+	// array for genre constants
+	public static $genreValues = array(
+		1 => 'Adventure',
+		2 => 'Action',
+		3 => 'Horror',
+		4 => 'RPG',
+		5 => 'FPS',
+		6 => 'Sports',
+		7 => 'Simulation',
+		8 => 'Strategy',
+	);
+
+	// genre constants
+	const CONSOLE_ADVENTURE = 1;
+	const CONSOLE_ACTION = 2;
+	const CONSOLE_HORROR = 3;
+	const CONSOLE_RPG = 4;
+	const CONSOLE_FPS = 5;
+	const CONSOLE_SPORTS = 6;
+	const CONSOLE_SIMULATION = 7;
+	const CONSOLE_STRATEGY = 8;
+
+	public static function getGenreNameFromValue($genreVal) {
+		if( array_key_exists($genreVal, self::$genreValues)) {
+			return self::$genreValues[$genreVal];
+		}
+		return 'Not a valid genre.';
+	}
+
 
 	// =============================================================
 	// functions for console page
 	// =============================================================
 	public function console() {
 
-		// get games per console
+		// allows a certain user to access
+		// $this->allowTo('user');
+
+		$consoleId = isset($_GET['id']) ? trim(strip_tags($_GET['id'])) : 0;
+
+		// all games
 		$consoleObject = new GameModel();
-		$gamesByConsole = $consoleObject->getAllGamesByConsole();
+		$allGames = $consoleObject->getAllGamesByConsole();
+
+		// all games per console
+		$consoleObjectTwo = new GameModel();
+		$gamesByConsole = $consoleObjectTwo->getAllGamesByConsole($consoleId);
 
 		$this->show('game/console', array(
-			'allGames' => $gamesByConsole
+			'allGames' => $allGames,
+			'consoleId' => $gamesByConsole
 		));
 	}
 
@@ -51,6 +97,10 @@ class GameController extends Controller {
 	// functions for details page
 	// =============================================================
 	public function details() {
+
+		// allows a certain user to access
+		$this->allowTo('user');
+
 		$this->show('game/details');
 	}
 
@@ -59,6 +109,10 @@ class GameController extends Controller {
 	// functions for genre page
 	// =============================================================
 	public function genre() {
+
+		// allows a certain user to access
+		$this->allowTo('user');
+
 		$this->show('game/genre');
 	}
 

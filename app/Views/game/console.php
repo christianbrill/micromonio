@@ -29,7 +29,7 @@
 		<tbody>
 			<?php foreach($allGames as $allInfo) : ?>
 				<tr>
-					<td><img src="<?= $allInfo['vid_image'] ?>" alt="" width="250px" height="300px"></td>
+					<td><img src="<?= $allInfo['vid_image'] ?>" alt="" width="230px" height="300px"></td>
 					<td><?= $allInfo['vid_name'] ?></td>
 					<td><?= $allInfo['vid_year'] ?></td>
 					<td><?= $allInfo['vid_editor'] ?></td>

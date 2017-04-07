@@ -9,11 +9,11 @@
 	<div style="display:flex;flex-flow:row nowrap;justify-content:space-around; margin:50px 0;">
 		<?php foreach($allGames as $allInfo) : ?>
 			<div>
-				<a href="<?= $this->url('game_details') ?>"><img src="<?= $allInfo['vid_image'] ?>" alt="<?= $allInfo['vid_name'] ?> Poster" width="250px" height="300px" style="border:5px solid black;"></a>
+				<a href="<?= $this->url('game_details') ?>"><img src="<?= $allInfo['vid_image'] ?>" alt="<?= $allInfo['vid_name'] ?> Poster" width="230px" height="300px"></a>
 
 				<h2 style="text-align:center"><a href="<?= $this->url('game_details') ?>"><?= $allInfo['vid_name'] ?></a></h2>
 
-				<h3 style="text-align:center"><a href="<?= $this->url('game_console') ?>">Console: <?= $allInfo['vid_console'] ?></a></h3>
+				<h3 style="text-align:center"><a href="<?= $this->url('game_console') ?>">Console: <?= \Controller\GameController::getConsoleNameFromValue($allInfo['vid_console']) ?></a></h3>
 			</div>
 		<?php endforeach; ?>
 	</div>

@@ -9,7 +9,7 @@
 		// micromonio.dev/modify/addedit
 		['GET', '/modify/addedit', 'Modify#addedit', 'modify_addedit'],
 
-		// micromonio.dev/game/details
+		// micromonio.dev/game/details/1
 		['GET', '/game/details', 'Game#details', 'game_details'],
 
 		// micromonio.dev/modify/delete
@@ -17,4 +17,14 @@
 
 		// micromonio.dev/game/genre
 		['GET', '/game/genre', 'Game#genre', 'game_genre'],
+
+		//micromonio.dev/signin
+		//['GET', '/signin', 'User#signin', 'user_signin'],
+		//['POST', '/signin', 'User#signinPost', 'user_signinpost'],
+
+		// micromonio.dev/signup
+		//['GET|POST', '/signup', 'User#signup', 'user_signup'],
+
+		// micromonio.dev/logout
+		//['GET', '/logout', 'User#logout', 'user_logout'],
 	);

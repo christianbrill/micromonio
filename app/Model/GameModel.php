@@ -4,6 +4,11 @@ namespace Model;
 
 class GameModel extends \W\Model\Model {
 
+    public function __construct() {
+        parent::__construct();
+        $this->setPrimaryKey('vid_id');
+    }
+
     // function to select all game information in the database
     public function getAllGameInfoFromDatabase() {
         $sqlRequest = '
@@ -25,15 +30,15 @@ class GameModel extends \W\Model\Model {
     }
 
 
-    public function getAllGamesByConsole() {
+    public function getAllGamesByConsole($consoleId) {
         $sqlRequest = '
             SELECT *
             FROM videogame
-
+            WHERE vid_id = :id
         ';
 
         $stmt = $this->dbh->prepare($sqlRequest);
-        //$stmt->bindValue(':consoleId', $consoleId);
+        $stmt->bindValue(':id', $consoleId);
 
         if($stmt->execute() == false) {
 			debug($stmt->errorInfo());
