@@ -34,7 +34,7 @@ class GameModel extends \W\Model\Model {
         $sqlRequest = '
             SELECT *
             FROM videogame
-            WHERE vid_id = :id
+            WHERE vid_console = :id
         ';
 
         $stmt = $this->dbh->prepare($sqlRequest);

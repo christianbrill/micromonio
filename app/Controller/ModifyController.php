@@ -16,9 +16,17 @@ class ModifyController extends Controller {
 		$this->show('modify/addedit');
 	}
 
+
+
 	// functions for delete page
 	public function delete() {
-		$this->show('modify/delete');
+
+		$object = new GameModel();
+		$allGames = $object->getAllGames();
+
+		$this->show('modify/delete', array(
+			'allGames' => $allGames 
+		));
 	}
 
 }
