@@ -2,7 +2,7 @@
 
 <?php $this->start('main_content') ?>
 
-    <form>
+    <form id="inputForm">
         <div class="form-group">
             <label for="name">Game Name</label>
             <input type="text" class="form-control" id="name" placeholder="Name">

@@ -136,4 +136,13 @@ class UserController extends Controller {
 
 		$this->redirectToRoute('default_home');
 	}
+
+
+
+	/*=====================================
+		LOGOUT FUNCTION
+	=====================================*/
+	public function reset($token) {
+		$this->show('user/reset');
+	}
 }

@@ -71,37 +71,28 @@ class GameController extends Controller {
 	// =============================================================
 	// functions for console page
 	// =============================================================
-	public function console() {
+	public function console($consoleId) {
 
-		// allows a certain user to access
-		// $this->allowTo('user');
-
-		$consoleId = isset($_GET['id']) ? trim(strip_tags($_GET['id'])) : 0;
-
-		// all games
-		$consoleObject = new GameModel();
-		$allGames = $consoleObject->getAllGamesByConsole();
-
-		// all games per console
-		$consoleObjectTwo = new GameModel();
-		$gamesByConsole = $consoleObjectTwo->getAllGamesByConsole($consoleId);
-
+		$gameModel = new \Model\GameModel();
+		$allGames = $gameModel->getAllGamesByConsole($consoleId);
 		$this->show('game/console', array(
-			'allGames' => $allGames,
-			'consoleId' => $gamesByConsole
+			'allGames' => $allGames
 		));
+
 	}
 
 
 	// =============================================================
 	// functions for details page
 	// =============================================================
-	public function details() {
+	public function details($gameId) {
 
-		// allows a certain user to access
-		$this->allowTo('user');
+		$gameModel = new \Model\GameModel();
+        $findOneGameById = $gameModel->find($gameId);
 
-		$this->show('game/details');
+		$this->show('game/details', array(
+			'oneGame' => $findOneGameById
+		));
 	}
 
 
@@ -109,9 +100,6 @@ class GameController extends Controller {
 	// functions for genre page
 	// =============================================================
 	public function genre() {
-
-		// allows a certain user to access
-		$this->allowTo('user');
 
 		$this->show('game/genre');
 	}
