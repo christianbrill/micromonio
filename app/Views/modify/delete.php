@@ -15,7 +15,7 @@
                         <h3 style="text-align:center">Console: <?= \Controller\GameController::getConsoleNameFromValue($allInfo['vid_console']) ?></h3>
                     </td>
                     <td style="vertical-align: middle;">
-                        <button type="button" name="button"><a href="#">Delete this game</a></button>
+                        <button type="button" name="button"><a href="<?= \Model\ModifyModel::deleteGameFromDatabase($allInfo['vid_id']) ?>">Delete this game</a></button>
                     </td>
                 </tr>
 			</table>

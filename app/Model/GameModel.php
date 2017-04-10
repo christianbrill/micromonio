@@ -44,7 +44,7 @@ class GameModel extends \W\Model\Model {
         // $stmt = $this->dbh->prepare($sqlRequest);
         // $stmt->bindValue(':gameId', $gameId, \PDO::PARAM_INT);
 
-        
+
     }
 
 
