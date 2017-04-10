@@ -14,6 +14,9 @@
             <p>Console: <?= \Controller\GameController::getConsoleNameFromValue($allInfo['vid_console']) ?></p>
         </div>
 
+        <button type="button" name="button" id="edit-game"><a href="#">Edit Game</a></button>
+        <button type="button" name="button" id="delete-game"><a href="#">Delete Game</a></button>
+
     <?php endforeach; ?>
 
 <?php $this->stop('main_content') ?>

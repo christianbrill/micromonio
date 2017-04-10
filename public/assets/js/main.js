@@ -22,8 +22,8 @@ $(document).ready(function() {
                 'console': consoleValue,
                 'image': imageValue
             }
-        }).done(function() {
-            alert("It worked.")
-        });
+        }).done(function(response) {
+            alert(response);
+        }); // ajax end
     }); // form submit end
 }); // document.ready end
